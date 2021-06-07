@@ -7,8 +7,8 @@ public class Lantern extends Furniture {
 		super("Lantern");
 		col = Color.get(-1, 000, 111, 555);
 		sprite = 5;
-		xr = 3;
-		yr = 2;
+		width = 3;
+		height = 2;
 	}
 
 	public int getLightRadius() {

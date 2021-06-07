@@ -9,8 +9,8 @@ public class Workbench extends Furniture {
 		super("Workbench");
 		col = Color.get(-1, 100, 321, 431);
 		sprite = 4;
-		xr = 3;
-		yr = 2;
+		width = 3;
+		height = 2;
 	}
 
 	public boolean use(Player player, int attackDir) {

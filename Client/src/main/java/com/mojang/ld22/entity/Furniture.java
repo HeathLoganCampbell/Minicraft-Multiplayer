@@ -13,8 +13,8 @@ public class Furniture extends Entity {
 
 	public Furniture(String name) {
 		this.name = name;
-		xr = 3;
-		yr = 3;
+		width = 3;
+		height = 3;
 	}
 
 	public void tick() {

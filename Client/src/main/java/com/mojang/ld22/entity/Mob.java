@@ -18,8 +18,8 @@ public class Mob extends Entity {
 
 	public Mob() {
 		x = y = 8;
-		xr = 4;
-		yr = 3;
+		width = 4;
+		height = 3;
 	}
 
 	public void tick() {

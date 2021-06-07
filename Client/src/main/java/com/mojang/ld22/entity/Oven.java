@@ -9,8 +9,8 @@ public class Oven extends Furniture {
 		super("Oven");
 		col = Color.get(-1, 000, 332, 442);
 		sprite = 2;
-		xr = 3;
-		yr = 2;
+		width = 3;
+		height = 2;
 	}
 
 	public boolean use(Player player, int attackDir) {

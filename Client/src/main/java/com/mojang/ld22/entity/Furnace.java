@@ -9,8 +9,8 @@ public class Furnace extends Furniture {
 		super("Furnace");
 		col = Color.get(-1, 000, 222, 333);
 		sprite = 3;
-		xr = 3;
-		yr = 2;
+		width = 3;
+		height = 2;
 	}
 
 	public boolean use(Player player, int attackDir) {

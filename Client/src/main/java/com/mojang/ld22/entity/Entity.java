@@ -11,15 +11,19 @@ import java.util.Random;
 public class Entity {
 	protected static final Random RANDOM = new Random();
 	public int x, y;
-	public int xr = 6;
-	public int yr = 6;
-	public boolean removed;
+	public int width = 6;
+	public int height = 6;
+	public boolean removed = false;
 	public Level level;
 
-	public void render(Screen screen) {
+	public void render(Screen screen)
+	{
+
 	}
 
-	public void tick() {
+	public void tick()
+	{
+
 	}
 
 	public void remove() {
@@ -31,7 +35,7 @@ public class Entity {
 	}
 
 	public boolean intersects(int x0, int y0, int x1, int y1) {
-		return !(x + xr < x0 || y + yr < y0 || x - xr > x1 || y - yr > y1);
+		return !(x + width < x0 || y + height < y0 || x - width > x1 || y - height > y1);
 	}
 
 	public boolean blocks(Entity e) {
@@ -62,15 +66,15 @@ public class Entity {
 	protected boolean move2(int xa, int ya) {
 		if (xa != 0 && ya != 0) throw new IllegalArgumentException("Move2 can only move along one axis at a time!");
 
-		int xto0 = ((x) - xr) >> 4;
-		int yto0 = ((y) - yr) >> 4;
-		int xto1 = ((x) + xr) >> 4;
-		int yto1 = ((y) + yr) >> 4;
+		int xto0 = ((x) - width) >> 4;
+		int yto0 = ((y) - height) >> 4;
+		int xto1 = ((x) + width) >> 4;
+		int yto1 = ((y) + height) >> 4;
 
-		int xt0 = ((x + xa) - xr) >> 4;
-		int yt0 = ((y + ya) - yr) >> 4;
-		int xt1 = ((x + xa) + xr) >> 4;
-		int yt1 = ((y + ya) + yr) >> 4;
+		int xt0 = ((x + xa) - width) >> 4;
+		int yt0 = ((y + ya) - height) >> 4;
+		int xt1 = ((x + xa) + width) >> 4;
+		int yt1 = ((y + ya) + height) >> 4;
 		boolean blocked = false;
 		for (int yt = yt0; yt <= yt1; yt++)
 			for (int xt = xt0; xt <= xt1; xt++) {
@@ -83,8 +87,8 @@ public class Entity {
 			}
 		if (blocked) return false;
 
-		List<Entity> wasInside = level.getEntities(x - xr, y - yr, x + xr, y + yr);
-		List<Entity> isInside = level.getEntities(x + xa - xr, y + ya - yr, x + xa + xr, y + ya + yr);
+		List<Entity> wasInside = level.getEntities(x - width, y - height, x + width, y + height);
+		List<Entity> isInside = level.getEntities(x + xa - width, y + ya - height, x + xa + width, y + ya + height);
 		for (int i = 0; i < isInside.size(); i++) {
 			Entity e = isInside.get(i);
 			if (e == this) continue;

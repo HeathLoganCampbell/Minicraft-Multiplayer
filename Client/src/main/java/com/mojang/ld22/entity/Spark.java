@@ -16,8 +16,8 @@ public class Spark extends Entity {
 		this.owner = owner;
 		xx = this.x = owner.x;
 		yy = this.y = owner.y;
-		xr = 0;
-		yr = 0;
+		width = 0;
+		height = 0;
 
 		this.xa = xa;
 		this.ya = ya;
