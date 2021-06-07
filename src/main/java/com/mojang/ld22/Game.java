@@ -330,6 +330,8 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public static void main(String[] args) {
+		System.setProperty("sun.java2d.opengl", "True");
+
 		Game game = new Game();
 		game.setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		game.setMaximumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
