@@ -9,4 +9,5 @@ Notch's LD22 entry, this project aims to optimise and add multipler support to i
 [0004] Use Thread Pool for sounds
 [0005] Reuse Random instances for entities
 [0006] Reuse Random instances for tiles
+[0007] Don't repeat Tile access on Entity
 ```

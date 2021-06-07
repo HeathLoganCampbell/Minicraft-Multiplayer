@@ -42,18 +42,23 @@ public class Entity {
 		return false;
 	}
 
-	public void hurt(Mob mob, int dmg, int attackDir) {
+	public void hurt(Mob mob, int dmg, int attackDir)
+	{
 	}
 
-	public void hurt(Tile tile, int x, int y, int dmg) {
+	public void hurt(Tile tile, int x, int y, int dmg)
+	{
 	}
 
-	public boolean move(int xa, int ya) {
-		if (xa != 0 || ya != 0) {
+	public boolean move(int xa, int ya)
+	{
+		if (xa != 0 || ya != 0)
+		{
 			boolean stopped = true;
 			if (xa != 0 && move2(xa, 0)) stopped = false;
 			if (ya != 0 && move2(0, ya)) stopped = false;
-			if (!stopped) {
+			if (!stopped)
+			{
 				int xt = x >> 4;
 				int yt = y >> 4;
 				level.getTile(xt, yt).steppedOn(level, xt, yt, this);
@@ -63,7 +68,8 @@ public class Entity {
 		return true;
 	}
 
-	protected boolean move2(int xa, int ya) {
+	protected boolean move2(int xa, int ya)
+	{
 		if (xa != 0 && ya != 0) throw new IllegalArgumentException("Move2 can only move along one axis at a time!");
 
 		int xto0 = ((x) - width) >> 4;
@@ -77,14 +83,21 @@ public class Entity {
 		int yt1 = ((y + ya) + height) >> 4;
 		boolean blocked = false;
 		for (int yt = yt0; yt <= yt1; yt++)
-			for (int xt = xt0; xt <= xt1; xt++) {
+		{
+			for (int xt = xt0; xt <= xt1; xt++)
+			{
 				if (xt >= xto0 && xt <= xto1 && yt >= yto0 && yt <= yto1) continue;
-				level.getTile(xt, yt).bumpedInto(level, xt, yt, this);
-				if (!level.getTile(xt, yt).mayPass(level, xt, yt, this)) {
+				Tile tile = level.getTile(xt, yt);
+
+				tile.bumpedInto(level, xt, yt, this);
+				if (!tile.mayPass(level, xt, yt, this))
+				{
 					blocked = true;
 					return false;
 				}
 			}
+		}
+
 		if (blocked) return false;
 
 		List<Entity> wasInside = level.getEntities(x - width, y - height, x + width, y + height);
