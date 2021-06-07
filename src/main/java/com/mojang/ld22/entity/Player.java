@@ -164,10 +164,11 @@ public class Player extends Mob {
 			if (attackDir == 3) xt = (x + r) >> 4;
 
 			if (xt >= 0 && yt >= 0 && xt < level.w && yt < level.h) {
-				if (activeItem.interactOn(level.getTile(xt, yt), level, xt, yt, this, attackDir)) {
+				Tile tile = level.getTile(xt, yt);
+				if (activeItem.interactOn(tile, level, xt, yt, this, attackDir)) {
 					done = true;
 				} else {
-					if (level.getTile(xt, yt).interact(level, xt, yt, this, activeItem, attackDir)) {
+					if (tile.interact(level, xt, yt, this, activeItem, attackDir)) {
 						done = true;
 					}
 				}
