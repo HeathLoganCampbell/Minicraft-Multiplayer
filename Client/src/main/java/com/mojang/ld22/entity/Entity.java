@@ -109,11 +109,13 @@ public class Entity {
 			e.touchedBy(this);
 		}
 		isInside.removeAll(wasInside);
-		for (int i = 0; i < isInside.size(); i++) {
+		for (int i = 0; i < isInside.size(); i++)
+		{
 			Entity e = isInside.get(i);
 			if (e == this) continue;
 
-			if (e.blocks(this)) {
+			if (e.blocks(this))
+			{
 				return false;
 			}
 		}
@@ -123,29 +125,36 @@ public class Entity {
 		return true;
 	}
 
-	protected void touchedBy(Entity entity) {
+	protected void touchedBy(Entity entity)
+	{
 	}
 
-	public boolean isBlockableBy(Mob mob) {
+	public boolean isBlockableBy(Mob mob)
+	{
 		return true;
 	}
 
-	public void touchItem(ItemEntity itemEntity) {
+	public void touchItem(ItemEntity itemEntity)
+	{
 	}
 
-	public boolean canSwim() {
+	public boolean canSwim()
+	{
 		return false;
 	}
 
-	public boolean interact(Player player, Item item, int attackDir) {
+	public boolean interact(Player player, Item item, int attackDir)
+	{
 		return item.interact(player, this, attackDir);
 	}
 
-	public boolean use(Player player, int attackDir) {
+	public boolean use(Player player, int attackDir)
+	{
 		return false;
 	}
 
-	public int getLightRadius() {
+	public int getLightRadius()
+	{
 		return 0;
 	}
 }
