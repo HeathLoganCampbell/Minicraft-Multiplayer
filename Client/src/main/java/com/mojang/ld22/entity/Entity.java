@@ -102,13 +102,16 @@ public class Entity {
 
 		List<Entity> wasInside = level.getEntities(x - width, y - height, x + width, y + height);
 		List<Entity> isInside = level.getEntities(x + xa - width, y + ya - height, x + xa + width, y + ya + height);
-		for (int i = 0; i < isInside.size(); i++) {
+		for (int i = 0; i < isInside.size(); i++)
+		{
 			Entity e = isInside.get(i);
 			if (e == this) continue;
 
 			e.touchedBy(this);
 		}
+
 		isInside.removeAll(wasInside);
+
 		for (int i = 0; i < isInside.size(); i++)
 		{
 			Entity e = isInside.get(i);
