@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class Tile {
 	public static int tickCount = 0;
-	protected Random random = new Random();
+	protected static Random RANDOM = new Random();
 
 	public static Tile[] tiles = new Tile[256];
 	public static Tile grass = new GrassTile(0);

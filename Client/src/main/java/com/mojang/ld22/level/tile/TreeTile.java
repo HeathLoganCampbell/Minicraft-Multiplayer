@@ -75,7 +75,7 @@ public class TreeTile extends Tile {
 			ToolItem tool = (ToolItem) item;
 			if (tool.type == ToolType.axe) {
 				if (player.payStamina(4 - tool.level)) {
-					hurt(level, xt, yt, random.nextInt(10) + (tool.level) * 5 + 10);
+					hurt(level, xt, yt, RANDOM.nextInt(10) + (tool.level) * 5 + 10);
 					return true;
 				}
 			}
@@ -85,22 +85,22 @@ public class TreeTile extends Tile {
 
 	private void hurt(Level level, int x, int y, int dmg) {
 		{
-			int count = random.nextInt(10) == 0 ? 1 : 0;
+			int count = RANDOM.nextInt(10) == 0 ? 1 : 0;
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.apple), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.apple), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 			}
 		}
 		int damage = level.getData(x, y) + dmg;
 		level.add(new SmashParticle(x * 16 + 8, y * 16 + 8));
 		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.get(-1, 500, 500, 500)));
 		if (damage >= 20) {
-			int count = random.nextInt(2) + 1;
+			int count = RANDOM.nextInt(2) + 1;
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.wood), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.wood), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 			}
-			count = random.nextInt(random.nextInt(4) + 1);
+			count = RANDOM.nextInt(RANDOM.nextInt(4) + 1);
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.acorn), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.acorn), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 			}
 			level.setTile(x, y, Tile.grass, 0);
 		} else {

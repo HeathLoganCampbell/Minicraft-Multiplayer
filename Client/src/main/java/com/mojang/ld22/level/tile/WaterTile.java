@@ -60,10 +60,10 @@ public class WaterTile extends Tile {
 		int xn = xt;
 		int yn = yt;
 
-		if (random.nextBoolean())
-			xn += random.nextInt(2) * 2 - 1;
+		if (RANDOM.nextBoolean())
+			xn += RANDOM.nextInt(2) * 2 - 1;
 		else
-			yn += random.nextInt(2) * 2 - 1;
+			yn += RANDOM.nextInt(2) * 2 - 1;
 
 		if (level.getTile(xn, yn) == Tile.hole) {
 			level.setTile(xn, yn, this, 0);

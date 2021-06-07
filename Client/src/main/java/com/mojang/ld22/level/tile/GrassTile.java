@@ -48,15 +48,15 @@ public class GrassTile extends Tile {
 	}
 
 	public void tick(Level level, int xt, int yt) {
-		if (random.nextInt(40) != 0) return;
+		if (RANDOM.nextInt(40) != 0) return;
 
 		int xn = xt;
 		int yn = yt;
 
-		if (random.nextBoolean())
-			xn += random.nextInt(2) * 2 - 1;
+		if (RANDOM.nextBoolean())
+			xn += RANDOM.nextInt(2) * 2 - 1;
 		else
-			yn += random.nextInt(2) * 2 - 1;
+			yn += RANDOM.nextInt(2) * 2 - 1;
 
 		if (level.getTile(xn, yn) == dirt) {
 			level.setTile(xn, yn, this, 0);
@@ -70,8 +70,8 @@ public class GrassTile extends Tile {
 				if (player.payStamina(4 - tool.level)) {
 					level.setTile(xt, yt, dirt, 0);
 					Sound.monsterHurt.play();
-					if (random.nextInt(5) == 0) {
-						level.add(new ItemEntity(new ResourceItem(Resource.seeds), xt * 16 + random.nextInt(10) + 3, yt * 16 + random.nextInt(10) + 3));
+					if (RANDOM.nextInt(5) == 0) {
+						level.add(new ItemEntity(new ResourceItem(Resource.seeds), xt * 16 + RANDOM.nextInt(10) + 3, yt * 16 + RANDOM.nextInt(10) + 3));
 						return true;
 					}
 				}
@@ -79,8 +79,8 @@ public class GrassTile extends Tile {
 			if (tool.type == ToolType.hoe) {
 				if (player.payStamina(4 - tool.level)) {
 					Sound.monsterHurt.play();
-					if (random.nextInt(5) == 0) {
-						level.add(new ItemEntity(new ResourceItem(Resource.seeds), xt * 16 + random.nextInt(10) + 3, yt * 16 + random.nextInt(10) + 3));
+					if (RANDOM.nextInt(5) == 0) {
+						level.add(new ItemEntity(new ResourceItem(Resource.seeds), xt * 16 + RANDOM.nextInt(10) + 3, yt * 16 + RANDOM.nextInt(10) + 3));
 						return true;
 					}
 					level.setTile(xt, yt, farmland, 0);

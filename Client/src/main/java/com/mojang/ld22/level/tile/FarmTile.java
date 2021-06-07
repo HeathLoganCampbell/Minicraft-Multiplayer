@@ -41,7 +41,7 @@ public class FarmTile extends Tile {
 	}
 
 	public void steppedOn(Level level, int xt, int yt, Entity entity) {
-		if (random.nextInt(60) != 0) return;
+		if (RANDOM.nextInt(60) != 0) return;
 		if (level.getData(xt, yt) < 5) return;
 		level.setTile(xt, yt, dirt, 0);
 	}

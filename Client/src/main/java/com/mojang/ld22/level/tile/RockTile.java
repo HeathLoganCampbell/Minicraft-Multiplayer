@@ -79,7 +79,7 @@ public class RockTile extends Tile {
 			ToolItem tool = (ToolItem) item;
 			if (tool.type == ToolType.pickaxe) {
 				if (player.payStamina(4 - tool.level)) {
-					hurt(level, xt, yt, random.nextInt(10) + (tool.level) * 5 + 10);
+					hurt(level, xt, yt, RANDOM.nextInt(10) + (tool.level) * 5 + 10);
 					return true;
 				}
 			}
@@ -92,13 +92,13 @@ public class RockTile extends Tile {
 		level.add(new SmashParticle(x * 16 + 8, y * 16 + 8));
 		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.get(-1, 500, 500, 500)));
 		if (damage >= 50) {
-			int count = random.nextInt(4) + 1;
+			int count = RANDOM.nextInt(4) + 1;
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.stone), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.stone), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 			}
-			count = random.nextInt(2);
+			count = RANDOM.nextInt(2);
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.coal), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.coal), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 			}
 			level.setTile(x, y, Tile.dirt, 0);
 		} else {

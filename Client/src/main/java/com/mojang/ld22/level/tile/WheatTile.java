@@ -37,7 +37,7 @@ public class WheatTile extends Tile {
 	}
 
 	public void tick(Level level, int xt, int yt) {
-		if (random.nextInt(2) == 0) return;
+		if (RANDOM.nextInt(2) == 0) return;
 
 		int age = level.getData(xt, yt);
 		if (age < 50) level.setData(xt, yt, age + 1);
@@ -57,7 +57,7 @@ public class WheatTile extends Tile {
 	}
 
 	public void steppedOn(Level level, int xt, int yt, Entity entity) {
-		if (random.nextInt(60) != 0) return;
+		if (RANDOM.nextInt(60) != 0) return;
 		if (level.getData(xt, yt) < 2) return;
 		harvest(level, xt, yt);
 	}
@@ -70,19 +70,19 @@ public class WheatTile extends Tile {
 	private void harvest(Level level, int x, int y) {
 		int age = level.getData(x, y);
 
-		int count = random.nextInt(2);
+		int count = RANDOM.nextInt(2);
 		for (int i = 0; i < count; i++) {
-			level.add(new ItemEntity(new ResourceItem(Resource.seeds), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+			level.add(new ItemEntity(new ResourceItem(Resource.seeds), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 		}
 
 		count = 0;
 		if (age == 50) {
-			count = random.nextInt(3) + 2;
+			count = RANDOM.nextInt(3) + 2;
 		} else if (age >= 40) {
-			count = random.nextInt(2) + 1;
+			count = RANDOM.nextInt(2) + 1;
 		}
 		for (int i = 0; i < count; i++) {
-			level.add(new ItemEntity(new ResourceItem(Resource.wheat), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+			level.add(new ItemEntity(new ResourceItem(Resource.wheat), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 		}
 
 		level.setTile(x, y, dirt, 0);

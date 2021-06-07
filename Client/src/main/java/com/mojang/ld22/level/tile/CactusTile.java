@@ -34,9 +34,9 @@ public class CactusTile extends Tile {
 		level.add(new SmashParticle(x * 16 + 8, y * 16 + 8));
 		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.get(-1, 500, 500, 500)));
 		if (damage >= 10) {
-			int count = random.nextInt(2) + 1;
+			int count = RANDOM.nextInt(2) + 1;
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.cactusFlower), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.cactusFlower), x * 16 + RANDOM.nextInt(10) + 3, y * 16 + RANDOM.nextInt(10) + 3));
 			}
 			level.setTile(x, y, sand, 0);
 		} else {
