@@ -194,7 +194,7 @@ public class Player extends Mob {
 			if (attackDir == 3) xt = (x + r) >> 4;
 
 			if (xt >= 0 && yt >= 0 && xt < level.w && yt < level.h) {
-				level.getTile(xt, yt).hurt(level, xt, yt, this, random.nextInt(3) + 1, attackDir);
+				level.getTile(xt, yt).hurt(level, xt, yt, this, RANDOM.nextInt(3) + 1, attackDir);
 			}
 		}
 
@@ -227,7 +227,7 @@ public class Player extends Mob {
 	}
 
 	private int getAttackDamage(Entity e) {
-		int dmg = random.nextInt(3) + 1;
+		int dmg = RANDOM.nextInt(3) + 1;
 		if (attackItem != null) {
 			dmg += attackItem.getAttackDamageBonus(e);
 		}
@@ -329,8 +329,8 @@ public class Player extends Mob {
 
 	public boolean findStartPos(Level level) {
 		while (true) {
-			int x = random.nextInt(level.w);
-			int y = random.nextInt(level.h);
+			int x = RANDOM.nextInt(level.w);
+			int y = RANDOM.nextInt(level.h);
 			if (level.getTile(x, y) == Tile.grass) {
 				this.x = x * 16 + 8;
 				this.y = y * 16 + 8;

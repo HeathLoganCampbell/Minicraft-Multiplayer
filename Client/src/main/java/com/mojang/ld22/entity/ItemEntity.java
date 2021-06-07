@@ -24,11 +24,11 @@ public class ItemEntity extends Entity {
 		yr = 3;
 
 		zz = 2;
-		xa = random.nextGaussian() * 0.3;
-		ya = random.nextGaussian() * 0.2;
-		za = random.nextFloat() * 0.7 + 1;
+		xa = RANDOM.nextGaussian() * 0.3;
+		ya = RANDOM.nextGaussian() * 0.2;
+		za = RANDOM.nextFloat() * 0.7 + 1;
 
-		lifeTime = 60 * 10 + random.nextInt(60);
+		lifeTime = 60 * 10 + RANDOM.nextInt(60);
 	}
 
 	public void tick() {

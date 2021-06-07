@@ -20,9 +20,9 @@ public class TextParticle extends Entity {
 		xx = x;
 		yy = y;
 		zz = 2;
-		xa = random.nextGaussian() * 0.3;
-		ya = random.nextGaussian() * 0.2;
-		za = random.nextFloat() * 0.7 + 2;
+		xa = RANDOM.nextGaussian() * 0.3;
+		ya = RANDOM.nextGaussian() * 0.2;
+		za = RANDOM.nextFloat() * 0.7 + 2;
 	}
 
 	public void tick() {

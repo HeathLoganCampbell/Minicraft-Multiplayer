@@ -12,8 +12,8 @@ public class Slime extends Mob {
 
 	public Slime(int lvl) {
 		this.lvl = lvl;
-		x = random.nextInt(64 * 16);
-		y = random.nextInt(64 * 16);
+		x = RANDOM.nextInt(64 * 16);
+		y = RANDOM.nextInt(64 * 16);
 		health = maxHealth = lvl * lvl * 5;
 	}
 
@@ -21,10 +21,10 @@ public class Slime extends Mob {
 		super.tick();
 
 		int speed = 1;
-		if (!move(xa * speed, ya * speed) || random.nextInt(40) == 0) {
+		if (!move(xa * speed, ya * speed) || RANDOM.nextInt(40) == 0) {
 			if (jumpTime <= -10) {
-				xa = (random.nextInt(3) - 1);
-				ya = (random.nextInt(3) - 1);
+				xa = (RANDOM.nextInt(3) - 1);
+				ya = (RANDOM.nextInt(3) - 1);
 
 				if (level.player != null) {
 					int xd = level.player.x - x;
@@ -51,9 +51,9 @@ public class Slime extends Mob {
 	protected void die() {
 		super.die();
 
-		int count = random.nextInt(2) + 1;
+		int count = RANDOM.nextInt(2) + 1;
 		for (int i = 0; i < count; i++) {
-			level.add(new ItemEntity(new ResourceItem(Resource.slime), x + random.nextInt(11) - 5, y + random.nextInt(11) - 5));
+			level.add(new ItemEntity(new ResourceItem(Resource.slime), x + RANDOM.nextInt(11) - 5, y + RANDOM.nextInt(11) - 5));
 		}
 
 		if (level.player != null) {

@@ -12,8 +12,8 @@ public class AirWizard extends Mob {
 	private int attackType = 0;
 
 	public AirWizard() {
-		x = random.nextInt(64 * 16);
-		y = random.nextInt(64 * 16);
+		x = RANDOM.nextInt(64 * 16);
+		y = RANDOM.nextInt(64 * 16);
 		health = maxHealth = 2000;
 	}
 
@@ -65,17 +65,17 @@ public class AirWizard extends Mob {
 		}
 
 		int speed = (tickTime % 4) == 0 ? 0 : 1;
-		if (!move(xa * speed, ya * speed) || random.nextInt(100) == 0) {
+		if (!move(xa * speed, ya * speed) || RANDOM.nextInt(100) == 0) {
 			randomWalkTime = 30;
-			xa = (random.nextInt(3) - 1);
-			ya = (random.nextInt(3) - 1);
+			xa = (RANDOM.nextInt(3) - 1);
+			ya = (RANDOM.nextInt(3) - 1);
 		}
 		if (randomWalkTime > 0) {
 			randomWalkTime--;
 			if (level.player != null && randomWalkTime == 0) {
 				int xd = level.player.x - x;
 				int yd = level.player.y - y;
-				if (random.nextInt(4) == 0 && xd * xd + yd * yd < 50 * 50) {
+				if (RANDOM.nextInt(4) == 0 && xd * xd + yd * yd < 50 * 50) {
 					if (attackDelay == 0 && attackTime == 0) {
 						attackDelay = 60 * 2;
 					}

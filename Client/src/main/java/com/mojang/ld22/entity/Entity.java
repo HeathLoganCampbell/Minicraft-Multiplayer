@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Entity {
-	protected final Random random = new Random();
+	protected static final Random RANDOM = new Random();
 	public int x, y;
 	public int xr = 6;
 	public int yr = 6;

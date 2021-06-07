@@ -115,8 +115,8 @@ public class Mob extends Entity {
 	}
 
 	public boolean findStartPos(Level level) {
-		int x = random.nextInt(level.w);
-		int y = random.nextInt(level.h);
+		int x = RANDOM.nextInt(level.w);
+		int y = RANDOM.nextInt(level.h);
 		int xx = x * 16 + 8;
 		int yy = y * 16 + 8;
 
