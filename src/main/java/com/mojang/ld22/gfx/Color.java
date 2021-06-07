@@ -1,6 +1,9 @@
 package com.mojang.ld22.gfx;
 
 public class Color {
+	public static int BLACK = get(0, 0, 0, 0);
+	public static int GRAY = get(0, 333, 333, 333);
+	public static int LIGHT_GREY = get(0, 555, 555, 555);
 
 	public static int get(int a, int b, int c, int d) {
 		return (get(d) << 24) + (get(c) << 16) + (get(b) << 8) + (get(a));

@@ -267,7 +267,7 @@ public class Game extends Canvas implements Runnable {
 	private void renderGui() {
 		for (int y = 0; y < 2; y++) {
 			for (int x = 0; x < 20; x++) {
-				screen.render(x * 8, screen.h - 16 + y * 8, 0 + 12 * 32, Color.get(000, 000, 000, 000), 0);
+				screen.render(x * 8, screen.h - 16 + y * 8, 0 + 12 * 32, Color.BLACK, 0);
 			}
 		}
 

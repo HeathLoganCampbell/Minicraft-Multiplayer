@@ -51,7 +51,7 @@ public class TitleMenu extends Menu {
 			int col = Color.get(0, 222, 222, 222);
 			if (i == selected) {
 				msg = "> " + msg + " <";
-				col = Color.get(0, 555, 555, 555);
+				col = Color.LIGHT_GREY;
 			}
 			Font.draw(msg, screen, (screen.w - msg.length() * 8) / 2, (8 + i) * 8, col);
 		}
