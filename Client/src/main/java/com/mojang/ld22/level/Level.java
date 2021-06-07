@@ -249,6 +249,21 @@ public class Level {
 		}
 	}
 
+	public boolean spawn(Entity entity, int x, int y)
+	{
+		int tileX = x >> 4;
+		int tileY = y >> 4;
+		if (this.getTile(tileX, tileY).mayPass(this, tileX, tileY, entity))
+		{
+			entity.x = x;
+			entity.y = y;
+			this.add(entity);
+			return true;
+		}
+
+		return false;
+	}
+
 	public void tick() {
 		trySpawn(1);
 

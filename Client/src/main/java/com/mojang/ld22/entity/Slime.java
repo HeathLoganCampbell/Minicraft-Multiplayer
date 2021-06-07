@@ -14,7 +14,7 @@ public class Slime extends Mob {
 		this.lvl = lvl;
 		x = RANDOM.nextInt(64 * 16);
 		y = RANDOM.nextInt(64 * 16);
-		health = maxHealth = lvl * lvl * 5;
+		health = maxHealth = Math.min(lvl * lvl * 5, 1);
 	}
 
 	public void tick() {

@@ -83,6 +83,16 @@ public class Mob extends Entity {
 		doHurt(damage, attackDir);
 	}
 
+	public void setMaxHealth(int health)
+	{
+		this.maxHealth = health;
+	}
+
+	public void setHealth(int health)
+	{
+		this.health = health;
+	}
+
 	public void hurt(Mob mob, int damage, int attackDir) {
 		doHurt(damage, attackDir);
 	}

@@ -13,7 +13,7 @@ public class Entity {
 	public int x, y;
 	public int width = 6;
 	public int height = 6;
-	public boolean removed = false;
+	public boolean removed;
 	public Level level;
 
 	public void render(Screen screen)
