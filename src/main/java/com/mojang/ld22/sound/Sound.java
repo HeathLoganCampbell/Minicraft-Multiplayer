@@ -1,7 +1,11 @@
 package com.mojang.ld22.sound;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 import java.applet.Applet;
 import java.applet.AudioClip;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Sound {
 	public static final Sound playerHurt = new Sound("/playerhurt.wav");
@@ -11,6 +15,9 @@ public class Sound {
 	public static final Sound pickup = new Sound("/pickup.wav");
 	public static final Sound bossdeath = new Sound("/bossdeath.wav");
 	public static final Sound craft = new Sound("/craft.wav");
+
+	public ExecutorService taskService = Executors.newCachedThreadPool(new ThreadFactoryBuilder().setDaemon(true)
+                .setNameFormat("Minicraft Sound Task - #%d").build());
 
 	private AudioClip clip;
 
@@ -23,14 +30,6 @@ public class Sound {
 	}
 
 	public void play() {
-		try {
-			new Thread() {
-				public void run() {
-					clip.play();
-				}
-			}.start();
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
+		taskService.execute(() -> clip.play());
 	}
 }
